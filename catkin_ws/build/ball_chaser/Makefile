@@ -90,6 +90,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -100,16 +110,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -271,21 +271,6 @@ ball_chaser_generate_messages/fast:
 .PHONY : ball_chaser_generate_messages/fast
 
 # Convenience name for target.
-ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/rule:
-	cd /home/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/rule
-.PHONY : ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/rule
-
-# Convenience name for target.
-_ball_chaser_generate_messages_check_deps_DriveToTarget: ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/rule
-
-.PHONY : _ball_chaser_generate_messages_check_deps_DriveToTarget
-
-# fast build rule for target.
-_ball_chaser_generate_messages_check_deps_DriveToTarget/fast:
-	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/build.make ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/build
-.PHONY : _ball_chaser_generate_messages_check_deps_DriveToTarget/fast
-
-# Convenience name for target.
 ball_chaser/CMakeFiles/ball_chaser_generate_messages_lisp.dir/rule:
 	cd /home/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/ball_chaser_generate_messages_lisp.dir/rule
 .PHONY : ball_chaser/CMakeFiles/ball_chaser_generate_messages_lisp.dir/rule
@@ -360,6 +345,36 @@ ball_chaser_generate_messages_nodejs/fast:
 	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/ball_chaser_generate_messages_nodejs.dir/build.make ball_chaser/CMakeFiles/ball_chaser_generate_messages_nodejs.dir/build
 .PHONY : ball_chaser_generate_messages_nodejs/fast
 
+# Convenience name for target.
+ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/rule:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/rule
+.PHONY : ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/rule
+
+# Convenience name for target.
+_ball_chaser_generate_messages_check_deps_DriveToTarget: ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/rule
+
+.PHONY : _ball_chaser_generate_messages_check_deps_DriveToTarget
+
+# fast build rule for target.
+_ball_chaser_generate_messages_check_deps_DriveToTarget/fast:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/build.make ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/build
+.PHONY : _ball_chaser_generate_messages_check_deps_DriveToTarget/fast
+
+# Convenience name for target.
+ball_chaser/CMakeFiles/process_image.dir/rule:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/process_image.dir/rule
+.PHONY : ball_chaser/CMakeFiles/process_image.dir/rule
+
+# Convenience name for target.
+process_image: ball_chaser/CMakeFiles/process_image.dir/rule
+
+.PHONY : process_image
+
+# fast build rule for target.
+process_image/fast:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/process_image.dir/build.make ball_chaser/CMakeFiles/process_image.dir/build
+.PHONY : process_image/fast
+
 src/drive_bot.o: src/drive_bot.cpp.o
 
 .PHONY : src/drive_bot.o
@@ -387,6 +402,33 @@ src/drive_bot.cpp.s:
 	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/drive_bot.dir/build.make ball_chaser/CMakeFiles/drive_bot.dir/src/drive_bot.cpp.s
 .PHONY : src/drive_bot.cpp.s
 
+src/process_image.o: src/process_image.cpp.o
+
+.PHONY : src/process_image.o
+
+# target to build an object file
+src/process_image.cpp.o:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/process_image.dir/build.make ball_chaser/CMakeFiles/process_image.dir/src/process_image.cpp.o
+.PHONY : src/process_image.cpp.o
+
+src/process_image.i: src/process_image.cpp.i
+
+.PHONY : src/process_image.i
+
+# target to preprocess a source file
+src/process_image.cpp.i:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/process_image.dir/build.make ball_chaser/CMakeFiles/process_image.dir/src/process_image.cpp.i
+.PHONY : src/process_image.cpp.i
+
+src/process_image.s: src/process_image.cpp.s
+
+.PHONY : src/process_image.s
+
+# target to generate assembly for a file
+src/process_image.cpp.s:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/process_image.dir/build.make ball_chaser/CMakeFiles/process_image.dir/src/process_image.cpp.s
+.PHONY : src/process_image.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -403,19 +445,23 @@ help:
 	@echo "... ball_chaser_gennodejs"
 	@echo "... ball_chaser_gencpp"
 	@echo "... ball_chaser_generate_messages"
-	@echo "... test"
-	@echo "... _ball_chaser_generate_messages_check_deps_DriveToTarget"
 	@echo "... ball_chaser_generate_messages_lisp"
 	@echo "... ball_chaser_genpy"
 	@echo "... ball_chaser_genlisp"
 	@echo "... ball_chaser_generate_messages_py"
 	@echo "... list_install_components"
 	@echo "... ball_chaser_generate_messages_nodejs"
+	@echo "... test"
+	@echo "... _ball_chaser_generate_messages_check_deps_DriveToTarget"
+	@echo "... process_image"
 	@echo "... install/strip"
 	@echo "... edit_cache"
 	@echo "... src/drive_bot.o"
 	@echo "... src/drive_bot.i"
 	@echo "... src/drive_bot.s"
+	@echo "... src/process_image.o"
+	@echo "... src/process_image.i"
+	@echo "... src/process_image.s"
 .PHONY : help
 
 
