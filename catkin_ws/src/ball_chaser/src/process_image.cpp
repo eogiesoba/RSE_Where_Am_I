@@ -9,13 +9,19 @@ ros::ServiceClient client;
 // This function calls the command_robot service to drive the robot in the specified direction
 void drive_robot(float lin_x, float ang_z)
 {
-    // TODO: Request a service and pass the velocities to it to drive the robot
+    // Request centered joint angles [1.57, 1.57]
+    ball_chaser::DriveToTarget srv;
+    srv.request.linear_x = lin_x;
+    srv.request.angular_z = ang_z;
+
+    // Call the drive_bot service and pass requested angular and linear velocities
+    if (!client.call(srv))
+        ROS_ERROR("Failed to call service drive_bot");
 }
 
 // This callback function continuously executes and reads the image data
 void process_image_callback(const sensor_msgs::Image img)
 {
-
     int white_pixel = 255; //Pixel value of white
     bool is_white = false; // Assume no white pixel found
     int index; // Index value of the white pixel
@@ -37,18 +43,22 @@ void process_image_callback(const sensor_msgs::Image img)
 
     //If white ball is found drive robot towards the white ball
     if (is_white == true){
-        if (index < left_bar ){ //Check if ball is on the left side
-
+        if (index < left_bar ){ 
+            ROS_INFO_STREAM("Robot moving LEFT!");
+            drive_robot(0.0, 0.5);
         }
-        else if (index > right_bar ){  //Check if ball is on the right side
-
+        else if (index > right_bar ){ 
+            ROS_INFO_STREAM("Robot moving RIGHT!");
+            drive_robot(0.0, -0.5);
         } 
-        else{  //Move robot forward
-
+        else{  
+            ROS_INFO_STREAM("Robot moving FORWARD!");
+            drive_robot(0.5, 0.0);
         }
     }
-    else{ //Stop robot's movement
-
+    else{ 
+        ROS_INFO_STREAM("Robot STOPPED!");
+        drive_robot(0.0, 0.0);
     }
         
 }
