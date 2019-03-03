@@ -95,6 +95,21 @@
       </plugin>
     </sensor>
   </gazebo>
+    
+  <!-- chassis -->
+  <gazebo reference="chassis">
+      	  <material>Gazebo/Blue</material>
+  </gazebo>
 
+  <!-- left_wheel -->
+  <gazebo reference="left_wheel">
+	<material>Gazebo/Orange</material>
+  </gazebo>
+  
+  <!-- right_wheel -->
+  <gazebo reference="right_wheel">
+	<material>Gazebo/Yellow</material>
+  </gazebo> 
+  
 
 </robot>
