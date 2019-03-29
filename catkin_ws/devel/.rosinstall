@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/workspace/catkin_ws/devel/setup.sh
+    local-name: /home/workspace/RSE_Where_Am_I/catkin_ws/devel/setup.sh

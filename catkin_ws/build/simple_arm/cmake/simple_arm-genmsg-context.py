@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = "/home/workspace/catkin_ws/src/simple_arm/srv/GoToPosition.srv"
+services_str = "/home/workspace/RSE_Where_Am_I/catkin_ws/src/simple_arm/srv/GoToPosition.srv"
 pkg_name = "simple_arm"
 dependencies_str = "std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

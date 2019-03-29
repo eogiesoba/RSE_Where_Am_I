@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/simple_mover.dir/src/simple_mover.cpp.o"
-  "/home/workspace/catkin_ws/devel/lib/simple_arm/simple_mover.pdb"
-  "/home/workspace/catkin_ws/devel/lib/simple_arm/simple_mover"
+  "/home/workspace/RSE_Where_Am_I/catkin_ws/devel/lib/simple_arm/simple_mover.pdb"
+  "/home/workspace/RSE_Where_Am_I/catkin_ws/devel/lib/simple_arm/simple_mover"
 )
 
 # Per-language clean rules from dependency scanning.
