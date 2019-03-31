@@ -6,18 +6,36 @@
  <arg name="map_file" default="$(find my_robot)/maps/map.yaml"/>
  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
- <!-- AMCL Node -->
+ <!-- AMCL / Locolization Node -->
  <node name="amcl" pkg="amcl" type="amcl" output="screen"> 
-   <!--<remap from="scan" to="my_robot/laser/scan"/>-->
-   <param name="odom_frame_id" value="odom"/>
-   <param name="odom_model_type" value="diff-corrected"/>
-   <param name="base_frame_id" value="robot_footprint"/>
-   <param name="global_frame_id" value="map"/>
+   <remap from="scan" to="scan"/>
+   <!-- Overall Filter Parameters -->
+    <param name="max_particles" value="180"/> <!-- max num allowed of particles. -->
+    <param name="min_particles" value="70"/> <!-- min num allowed of particles. -->
+    <param name="update_min_d" value="0.08"/> <!-- Translation movement needed (in meters) before doing filter update -->
+    <param name="update_min_a" value="0.30"/> <!-- Rotation needed (in meters) before doing filter update -->
+    <param name="initial_pose_x" value="1.0"/>  
+    <param name="initial_pose_y" value="1.0"/> 
+    
+   
+   <!-- Overall Laser Parameters -->
+    <param name="laser_max_beams" value="70"/> <!-- Number of beams per scan before updating the AMCL filter-->
+
+   <!-- Overall Odom Parameters -->
+    <param name="odom_model_type" value="diff-corrected"/> 
+    <param name="odom_alpha1" value="0.018" /> <!-- Noise in rotation due to rotational movement-->
+    <param name="odom_alpha2" value="0.018" /> <!-- Noise in rotation due to translational movement -->
+    <param name="odom_alpha3" value="0.018" /> <!-- Noise in translation due to translational movement -->
+    <param name="odom_alpha4" value="0.018" /> <!-- Noise in translation due to rotational movement -->
+    <param name="odom_frame_id" value="odom"/>
+    <!--<param name="odom_model_type" value="diff-corrected"/>-->
+    <param name="base_frame_id" value="robot_footprint"/>
+    <param name="global_frame_id" value="map"/>
  </node>
  
   <!-- Move Base -->
   <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
-     <!--<remap from="scan" to="my_robot/laser/scan"/>-->
+     <remap from="scan" to="scan"/>
      <param name="base_global_planner" value="navfn/NavfnROS" />
      <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
      <rosparam file="$(find my_robot)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
